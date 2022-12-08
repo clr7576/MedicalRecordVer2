@@ -1,0 +1,29 @@
+<%= turbo_frame_tag dom_id(@basal_value) do %>
+<%= form_with(model: @basal_value) do |f| %>
+    <div>
+      <%= f.label "心跳" %>
+      <%= f.text_field :HR %>
+    </div>
+    <div>
+     <%= f.label "呼吸" %>
+     <%= f.text_field :RR %>
+    </div>
+    <div>
+     <%= f.label "血壓" %>
+     <%= f.text_field :BP %>
+    </div>
+    <div>
+    <%= f.label "體溫" %>
+    <%= f.text_field :BT %>
+   </div>
+   <div>
+    <%= f.label "時間" %>
+    <%= f.time_field :time %>
+  </div>
+  <div>
+   <%= f.label "備註" %>
+   <%= f.text_area :description %>
+  </div>
+     <%=f.submit %>
+ <% end %>
+ <% end %>

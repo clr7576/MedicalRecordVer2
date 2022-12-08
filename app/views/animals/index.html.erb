@@ -1,0 +1,19 @@
+<h1> 動物資料 </h1>
+
+<div>
+<%= link_to "新增動物", new_animal_path %>
+</div>
+
+<hr class="my-2 bg-blue-300">
+
+<div>
+<% @animals.each do |animal| %>
+  <%= turbo_frame_tag dom_id(animal) do%>
+   <li class="py-2">
+    <%= link_to animal.name, animal_path(animal.id) %> 
+    <%= link_to "編輯", edit_animal_path(animal.id) %>
+    <%= link_to "刪除", animal_path(animal.id),data: {   turbo_confirm: "確定刪除？", turbo_method: "delete"} %>
+   </li>
+  <% end %>
+<% end %>
+</div>

@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  HR: MyString
+  RR: MyString
+  BP: MyString
+  BT: MyString
+  time: 2022-12-08 12:04:42
+  deleted_at: 2022-12-08 12:04:42
+  description: MyText
+  animal: one
+
+two:
+  HR: MyString
+  RR: MyString
+  BP: MyString
+  BT: MyString
+  time: 2022-12-08 12:04:42
+  deleted_at: 2022-12-08 12:04:42
+  description: MyText
+  animal: two

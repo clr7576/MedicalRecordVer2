@@ -1,0 +1,15 @@
+<%= form_with model: @animal do |f| %>
+   <div>
+     <%= f.label "動物名" %>
+     <%= f.text_field :name %>
+   </div>
+   <div>
+    <%= f.label "品種" %>
+    <%= f.text_field :species %>
+   </div>
+   <div>
+    <%= f.label "病例號" %>
+    <%= f.text_field :number %>
+   </div>
+    <%=f.submit class: "btn-red" %>
+   <% end %>
