@@ -1,10 +1,10 @@
 <% @basal_values.each do |basal_value| %>
   <div>
-   <li>
+   <li> 血壓
+     <% if !!basal_value.BP? %>
      <%= basal_value.BP %>
-   </li>
-   <li>
      <%= basal_value.time %>
+     <% end %>
    </li>
   </div>
 <% end %>
