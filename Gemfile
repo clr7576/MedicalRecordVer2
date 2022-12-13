@@ -75,3 +75,4 @@ group :test do
 end
 
 gem 'paranoia', '~> 2.6', '>= 2.6.1'
+gem 'line-bot-api'

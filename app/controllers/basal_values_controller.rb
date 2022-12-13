@@ -4,9 +4,10 @@ class BasalValuesController < ApplicationController
 
         @basal_value = @animal.basal_values.new(basal_value_params)
         if @basal_value.save
-        #   redirect_to animal_path(@animal.id), notice: "新增成功"
+        system %Q(curl -X POST -H 'Authorization: Bearer W1pfZsZA5f8t5fhVP8M2tU4xzhuVHG65OTkPlQgweZH' -F 'message="#{@animal.name} 新增血壓 #{@basal_value.BP}"' https://notify-api.line.me/api/notify)
+          # redirect_to animal_path(@animal.id), notice: "新增成功"
         else
-          redirect_to animal_path(@animal.id), notice: "請填寫"
+          redirect_to animal_path(@animal.id), notice: "請填寫時間"
         end
     end
 
@@ -35,6 +36,12 @@ class BasalValuesController < ApplicationController
        @animal = Animal.find(params[:id])
        @basal_values = @animal.basal_values.order(id: :desc)
     end
+
+    def respiratory
+      @animal = Animal.find(params[:id])
+      @basal_values = @animal.basal_values.order(id: :desc)
+    end
+
 
     private
     def basal_value_params

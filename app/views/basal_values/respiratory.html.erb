@@ -1,0 +1,12 @@
+<% @basal_values.each do |basal_value| %>
+    <div>
+     <li> 呼吸
+       <% if !!basal_value.RR? %>
+        <%= basal_value.RR %>
+        <%= basal_value.time %>
+       <% else %>
+        <span>------------------------------</span>
+       <% end %>
+     </li>
+    </div>
+  <% end %>

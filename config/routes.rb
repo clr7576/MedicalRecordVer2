@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :animals do
     resources :basal_values, shallow: true do
       member do 
-        get :bloodpressure
+        get :bloodpressure, :respiratory
       end
     end
    end
