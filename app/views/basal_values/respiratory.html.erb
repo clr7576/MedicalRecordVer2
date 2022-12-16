@@ -1,12 +1,22 @@
+
+
+<h1 class="py-5 text-xl">呼吸次數列表</h1>
+<hr class="py-1 bg-blue-300">
+<div class="py-5">
 <% @basal_values.each do |basal_value| %>
     <div>
-     <li> 呼吸
+     <li class="py-1"> 
        <% if !!basal_value.RR? %>
-        <%= basal_value.RR %>
-        <%= basal_value.time %>
+        <span class="p-1 px-2 mb-1 border border-red-300 rounded-lg bg-red-50 dark:bg-bred-300"> 呼吸
+          <%= basal_value.RR %>
+        </span>
+        <sapn class="px-3 text-sm">
+          <%= basal_value.time %>
+        </span>
        <% else %>
         <span>------------------------------</span>
        <% end %>
      </li>
     </div>
   <% end %>
+</div>

@@ -4,7 +4,10 @@ class BasalValuesController < ApplicationController
 
         @basal_value = @animal.basal_values.new(basal_value_params)
         if @basal_value.save
-        system %Q(curl -X POST -H 'Authorization: Bearer W1pfZsZA5f8t5fhVP8M2tU4xzhuVHG65OTkPlQgweZH' -F 'message="#{@animal.name} 新增血壓 #{@basal_value.BP}"' https://notify-api.line.me/api/notify)
+          
+        system %Q(curl -X POST -H 'Authorization: Bearer eLMJ7UuSgVL3xsiEtYTfFbnjRQd1sfekgcKeUfMgGAh' -F 'message="#{@animal.name} 心跳 #{@basal_value.HR} 血壓 #{@basal_value.BP} 呼吸 #{@basal_value.RR}"' https://notify-api.line.me/api/notify)
+
+         # LineService.new.notify("新增測試")
           # redirect_to animal_path(@animal.id), notice: "新增成功"
         else
           redirect_to animal_path(@animal.id), notice: "請填寫時間"
