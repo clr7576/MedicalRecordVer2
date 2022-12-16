@@ -1,72 +1,90 @@
-<h1>基礎值紀錄</<h1>
-<div > 動物名
-<%= @animal.name %>
-</div>
-<div> 病例號
-<%= @animal.number %>
-</div>
+<h1 class="flex justify-center text-2xl">基礎值紀錄</<h1>
 
-<div>
-<%= form_with(model: @basal_value, url: animal_basal_values_path(@animal.id),local: false)do |f| %>
-    <div>
-      <%= f.label "心跳" %>
-      <%= f.text_field :HR %>
-    </div>
-    <div>
+<hr class="my-5">
+
+<h2 class="py-2 border-2 border-blue-300">
+ <div class="flex justify-center py-1"> 動物名：
+  <%= @animal.name %>
+ </div>
+ <div class="flex justify-center"> 病例號：
+  <%= @animal.number %>
+ </div>
+</h2>
+
+<h3 class="py-2">
+ <div class="flex justify-center">
+  <%= form_with(model: @basal_value, url: animal_basal_values_path(@animal.id),local: false)do |f| %>
+   <div class="py-1">
+     <%= f.label "心跳" %>
+     <%= f.text_field :HR %>
+   </div>
+   <div class="py-1">
      <%= f.label "呼吸" %>
      <%= f.text_field :RR %>
-    </div>
-    <div>
+   </div>
+   <div class="py-1">
      <%= f.label "血壓" %>
      <%= f.text_field :BP %>
-    </div>
-    <div>
-    <%= f.label "體溫" %>
-    <%= f.text_field :BT %>
    </div>
-   <div>
-    <%= f.label "時間" %>
-    <%= f.time_field :time %>
-  </div>
-  <div>
-   <%= f.label "備註" %>
-   <%= f.text_area :description %>
-  </div>
-     <%=f.submit %>
- <% end %>
-</div>
+   <div class="py-1">
+     <%= f.label "體溫" %>
+     <%= f.text_field :BT %>
+   </div>
+   <div class="py-1">
+     <%= f.label "時間" %>
+     <%= f.time_field :time %>
+   </div>
+   <div class="py-1">
+     <%= f.label "備註" %>
+     <%= f.text_area :description %>
+   </div>
+   <button class="px-2 py-2 mb-1 mr-1 text-sm font-medium text-white bg-red-300 rounded-lg focus:outline-none hover:bg-red-500 focus:ring-2 focus:ring-red-350 dark:bg-red-300 dark:hover:bg-red-500 dark:focus:ring-red-700"> 新增基礎值
+   </button>
+  <% end %>
+ </div>
+</h3>
 
-<div> 
- <%= link_to "血壓",bloodpressure_basal_value_path %>
- <%= link_to "呼吸",respiratory_basal_value_path %>
-</div>
+<h4>
+ <div> 
+  <%= link_to "血壓",bloodpressure_basal_value_path %>
+  <%= link_to "呼吸",respiratory_basal_value_path %>
+ </div>
+</h4>
 
+<h5 class="flex justify-center">
+ <div> 
+  <% @basal_values.each do |basal_value| %>
+   <%= turbo_frame_tag dom_id(basal_value) do%>
+    <div class="px-2 py-1 mt-1 border-2 border-red-300">
+     <li> 心跳：
+      <%= basal_value.HR %>
+     </li>
+     <li> 呼吸：
+      <%= basal_value.RR %>
+     </li>
+     <li> 血壓：
+      <%= basal_value.BP %>
+     </li>
+     <li> 體溫：
+      <%= basal_value.BT %>
+     </li>
+     <li> 時間：
+      <%= basal_value.time %>
+     </li>
+     <li> 備註：
+      <%= basal_value.description %>
+     </li>
 
-<div> 
- <% @basal_values.each do |basal_value| %>
-  <%= turbo_frame_tag dom_id(basal_value) do%>
-  <div>
-    <li> 心跳
-     <%= basal_value.HR %>
-    </li>
-    <li> 呼吸
-     <%= basal_value.RR %>
-    </li>
-    <li> 血壓
-     <%= basal_value.BP %>
-    </li>
-    <li> 體溫
-     <%= basal_value.BT %>
-    </li>
-    <li> 時間
-     <%= basal_value.time %>
-    </li>
-    <li> 備註
-     <%= basal_value.description %>
-    </li>
-    <%= link_to "編輯", edit_basal_value_path(basal_value) %>
-    <%= link_to "刪除", basal_value_path(basal_value),data: {turbo_confirm: "確定刪除？", turbo_method: "delete"} %>
+    <div class="flex justify-end text-sm">
+      <span class="p-1 mx-1 mb-1 border border-green-300 rounded-lg bg-green-50 dark:bg-green-300">
+       <%= link_to "編輯", edit_basal_value_path(basal_value)%>
+      </span>
+      <span class="p-1 mb-1 border border-blue-300 rounded-lg bg-blue-50 dark:bg-blue-300">
+       <%= link_to "刪除", basal_value_path(basal_value),data: {turbo_confirm: "確定刪除？", turbo_method: "delete"} %>
+      </span>
+    </div>
    </div>
   <% end %>
  <% end %>
-</div>
+ </div> 
+</h5>
