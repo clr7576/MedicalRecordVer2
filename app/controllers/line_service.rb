@@ -9,10 +9,10 @@ class LineService
     def notify(message)
         content_type= 'Authorization: Bearer eLMJ7UuSgVL3xsiEtYTfFbnjRQd1sfekgcKeUfMgGAh'
         method = "POST"
-        body = 'message="message"'
+        body = "message=#{message}"
         # body = {message: message}
         
-        system %Q(curl -X #{method} -H '#{content_type}' -F #{body} #{@webhook})
+        system %Q(curl -X #{method} -H '#{content_type}' -F '#{body}' #{@webhook})
      
     end
   end

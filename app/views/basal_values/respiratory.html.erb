@@ -4,6 +4,7 @@
 <hr class="py-1 bg-blue-300">
 <div class="py-5">
 <% @basal_values.each do |basal_value| %>
+  <% if basal_value.RR.present? %>
     <div>
      <li class="py-1"> 
        <% if !!basal_value.RR? %>
@@ -13,10 +14,9 @@
         <sapn class="px-3 text-sm">
           <%= basal_value.time %>
         </span>
-       <% else %>
-        <span>------------------------------</span>
        <% end %>
      </li>
     </div>
+   <% end %>
   <% end %>
 </div>

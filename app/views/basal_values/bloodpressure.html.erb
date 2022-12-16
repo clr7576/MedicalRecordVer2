@@ -3,21 +3,20 @@
 <div class="py-5">
 
 <% @basal_values.each do |basal_value| %>
-  <div> 
-   <li class="py-1"> 
-     <% if !!basal_value.BP? %>
-       <span class="p-1 mb-1 border border-red-300 rounded-lg bg-red-50 dark:bg-red-300"> 血壓
-        <%= basal_value.BP %>
-       </span>
-       <span class="p-1 px-2 mb-1 border border-blue-300 rounded-lg bg-blue-50 dark:bg-blue-300"> 心跳
-        <%= basal_value.HR %>
-       </span>
-       <span class="px-3 text-sm">
-        <%= basal_value.time %>
-       </sapn>
-     <% else %>
-       <span>------------------------------</span>
-     <% end %>
-   </li>
-  </div>
+  <% if basal_value.BP.present? %>
+    <div>
+     <li class="py-1">
+       <% if !!basal_value.BP? %>
+         <span class="p-1 mb-1 border border-red-300 rounded-lg bg-red-50 dark:bg-red-300">血壓
+          <%= basal_value.BP %>
+         </span>
+         <span class="p-1 px-1 mb-1 border border-blue-300 rounded-lg bg-blue-50 dark:bg-blue-300"> 心跳
+          <%= basal_value.HR %>
+         </span>
+         <span class="text-xs">
+          <%= basal_value.time %>
+       <% end %>
+     </li>
+    </div>
+  <% end %>
 <% end %>
