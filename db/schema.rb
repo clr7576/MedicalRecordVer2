@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_08_040442) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_155655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_040442) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "discharge", default: "hospitalization"
     t.index ["deleted_at"], name: "index_animals_on_deleted_at"
+    t.index ["discharge"], name: "index_animals_on_discharge"
   end
 
   create_table "basal_values", force: :cascade do |t|

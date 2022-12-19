@@ -1,8 +1,7 @@
 class DischargesController < ApplicationController
   def index
-    @animals = Animal.deleted.order(id: :desc)
-    
-
+    # @animals = Animal.deleted.order(id: :desc)
+    @animals = Animal.where(discharge: "1").order(id: :desc)
   end
 
   def search

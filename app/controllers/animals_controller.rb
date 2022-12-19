@@ -1,7 +1,8 @@
 class AnimalsController < ApplicationController
 
     def index
-        @animals = Animal.all
+        # @animals = Animal.all
+        @animals = Animal.where(discharge: "hospitalization")
        end
    
        def new
@@ -42,10 +43,22 @@ class AnimalsController < ApplicationController
            @animal.destroy
            #  redirect_to animal_path,notice: "成功刪除"     
        end
+
+       def archive
+        @animal = Animal.find(params[:animal_id])
+       end
+
+       def archive_update
+        @animal = Animal.find(params[:animal_id])
+        if @animal.update(animal_params)
+           redirect_to root_path,notice: "已歸檔"
+        else
+        end
+       end
    
        private
        def animal_params
-         clean_params = params.require(:animal).permit(:name, :species, :number)
+         clean_params = params.require(:animal).permit(:name, :species, :number, :discharge)
        end
    end
    

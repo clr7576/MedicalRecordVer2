@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
   resources :animals do
+    get :archive
+    patch :archive_update  
     resources :basal_values, shallow: true do
       member do 
         get :bloodpressure, :respiratory, :summary

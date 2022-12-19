@@ -21,6 +21,7 @@
     <span class="px-2 text-xs">
      <%= link_to "修改名稱", edit_animal_path(animal.id) %>
      <%= link_to "刪除", animal_path(animal.id),data: {   turbo_confirm: "確定刪除？", turbo_method: "delete"} %>
+     <%= link_to "出院", animal_archive_path(animal.id) %>
     </span>
    </li>
   <% end %>
