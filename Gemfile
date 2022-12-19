@@ -77,3 +77,4 @@ end
 gem 'paranoia', '~> 2.6', '>= 2.6.1'
 gem 'line-bot-api'
 gem "dotenv-rails", "~> 2.8"
+gem 'ransack', :github => 'activerecord-hackery/ransack', :branch => 'main'

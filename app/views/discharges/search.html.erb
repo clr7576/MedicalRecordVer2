@@ -1,0 +1,13 @@
+<h1>搜尋
+<%= search_form_for @q,url: "/seahch" do |f| %>
+   <li>
+    <%= f.label :name %>
+    <%= f.search_field :name %>
+   </li>
+   <li>
+    <%= f.label :number %>
+    <%= f.search_field :number %>
+   </li>
+    <%= f.submit %>
+  <% end %>
+</h1>

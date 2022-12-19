@@ -10,7 +10,7 @@ Rails.application.routes.draw do
    end
 
    get "/index", to: "discharges#index"
-   get "/show", to: "discharges#show"
+   get "/search", to: "discharges#search"
 
    
    root "animals#index"
