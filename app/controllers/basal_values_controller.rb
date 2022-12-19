@@ -46,7 +46,12 @@ class BasalValuesController < ApplicationController
     end
 
     def summary
-      @animal = Animal.find(params[:id])
+      begin 
+        @animal = Animal.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        @animal = Animal.deleted.find(params[:id])
+      end
+        
       @basal_values = @animal.basal_values.order(id: :desc)
     end
 

@@ -1,6 +1,6 @@
 class DischargesController < ApplicationController
   def index
-    @animals = Animal.all
+    @animals = Animal.deleted
 
   end
 
