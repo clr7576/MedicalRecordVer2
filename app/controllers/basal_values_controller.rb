@@ -45,6 +45,11 @@ class BasalValuesController < ApplicationController
       @basal_values = @animal.basal_values.order(id: :desc)
     end
 
+    def summary
+      @animal = Animal.find(params[:id])
+      @basal_values = @animal.basal_values.order(id: :desc)
+    end
+
 
     private
     def basal_value_params

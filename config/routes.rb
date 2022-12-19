@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   resources :animals do
     resources :basal_values, shallow: true do
       member do 
-        get :bloodpressure, :respiratory
+        get :bloodpressure, :respiratory, :summary
       end
     end
    end
+
+   get "/index", to: "discharges#index"
+   get "/show", to: "discharges#show"
+
    
    root "animals#index"
 

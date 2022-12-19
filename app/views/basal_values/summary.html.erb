@@ -1,0 +1,30 @@
+<h1 class="py-5 text-xl">基礎值總表：<%= @animal.name %></h1>
+
+ <span>
+    <%= link_to "回首頁", root_path %> 
+ </span> 
+<hr class="py-1 bg-blue-300">
+<div class="py-5">
+<% @basal_values.each do |basal_value| %>
+  <div class="px-2 py-1 mt-1 border-2 border-red-300">
+     <li> 心跳：
+       <%= basal_value.HR %>
+     </li>
+     <li> 血壓：
+       <%= basal_value.BP %>
+     </li>
+     <li> 呼吸：
+       <%= basal_value.RR %>
+     </li>
+     <li> 體溫：
+       <%= basal_value.BT %>
+     </li>
+     <li> 備註：
+      <%= basal_value.description %>
+     </li>
+     <li> 時間
+      <%= basal_value.time %>
+     </li>
+   </div>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<div>
+<% @animals.each do |animal| %>
+   <li class="py-1">
+     <%= link_to animal.name,summary_basal_value_path(animal.id)%>
+    <span class="px-5 text-sm"> 病例號
+     <%= animal.number %>
+    </span>
+    <section class="text-xs"> 入院時間
+     <%= animal.created_at %>
+    </section>
+    </li>
+  <% end %>
+</div>
+
+
+
+

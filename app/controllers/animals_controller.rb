@@ -40,8 +40,7 @@ class AnimalsController < ApplicationController
        def destroy
          @animal = Animal.find(params[:id])
            @animal.destroy
-           #  redirect_to animal_path,notice: "成功刪除"
-          
+           #  redirect_to animal_path,notice: "成功刪除"     
        end
    
        private
