@@ -81,7 +81,7 @@
       <%= basal_value.BT %>
      </li>
      <li> 時間：
-      <%= basal_value.time %>
+      <%= basal_value.time.strftime("%H:%M_%m/%d/%Y")  %>
      </li>
      <li> 備註：
       <%= basal_value.description %>

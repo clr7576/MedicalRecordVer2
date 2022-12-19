@@ -1,6 +1,7 @@
 class DischargesController < ApplicationController
   def index
-    @animals = Animal.deleted
+    @animals = Animal.deleted.order(id: :desc)
+    
 
   end
 

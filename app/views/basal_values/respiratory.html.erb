@@ -11,8 +11,8 @@
         <span class="p-1 px-2 mb-1 border border-red-300 rounded-lg bg-red-50 dark:bg-bred-300"> 呼吸
           <%= basal_value.RR %>
         </span>
-        <sapn class="px-3 text-sm">
-          <%= basal_value.time %>
+        <sapn class="px-3 ml-3 text-sm">
+          <%= basal_value.time.strftime("%H:%M_%m/%d/%Y")  %>
         </span>
        <% end %>
      </li>

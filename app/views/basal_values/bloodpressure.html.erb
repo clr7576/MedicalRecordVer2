@@ -13,8 +13,8 @@
          <span class="p-1 px-1 mb-1 border border-blue-300 rounded-lg bg-blue-50 dark:bg-blue-300"> 心跳
           <%= basal_value.HR %>
          </span>
-         <span class="text-xs">
-          <%= basal_value.time %>
+         <span class="ml-5 text-xs">
+          <%= basal_value.time.strftime("%H:%M_%m/%d/%Y")  %>
        <% end %>
      </li>
     </div>

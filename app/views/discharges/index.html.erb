@@ -9,8 +9,8 @@
     <span class="px-5 text-sm"> 病例號
      <%= animal.number %>
     </span>
-    <section class="text-xs"> 入院時間
-     <%= animal.created_at %>
+    <section class="ml-5 text-sm"> 入院時間
+     <%= animal.created_at.strftime("%Y/%m/%d_%H:%M") %>
     </section>
     </li>
   <% end %>

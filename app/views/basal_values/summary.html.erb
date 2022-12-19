@@ -22,8 +22,8 @@
      <li> 備註：
       <%= basal_value.description %>
      </li>
-     <li> 時間
-      <%= basal_value.time %>
+     <li> 時間：
+      <%= basal_value.time.strftime("%Y/%m/%d_%H:%M")  %>
      </li>
    </div>
   <% end %>
