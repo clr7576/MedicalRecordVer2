@@ -1,9 +1,12 @@
 <%= turbo_frame_tag dom_id(@animal) do %>
  <%= form_with model: @animal, url: animal_archive_update_path(@animal.id) do |f| %>
     <div>
-      <%= f.label "歸檔" %>
-      <%= f.select(:discharge,[['discharge', 1]]) %>
-     <button> 確認 </button>
+     <span class="mr-2">
+      <%= f.label "出院歸檔" %>
+     </span>
+      <%= f.select(:discharge,[['discharge', 1]])%>
+     <button class="ml-5"> 確認 </button>
+     <%= link_to "取消", root_path %>
     </div>
   <% end %>
  <% end %>
