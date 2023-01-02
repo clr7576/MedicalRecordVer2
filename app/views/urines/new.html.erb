@@ -1,0 +1,18 @@
+<%= @animal.name %>
+<>
+ <%= form_with(model: @urine, url: animal_urines_path(@animal.id),local: false)do |f| %>
+   <%= f.time_field :time %>
+   <%= f.text_field :volume %>
+   <%= f.text_area :description %>
+   <%= f.submit %> 
+ <% end %>
+</div>
+
+ <% @urines.each do |urine| %>
+    <li> 尿量：
+    <%= urine.volume %>
+   </li>
+    <li> 時間：
+    <%= urine.time %>
+   </li>
+ <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_155655) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_21_044804) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,5 +41,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_155655) do
     t.index ["deleted_at"], name: "index_basal_values_on_deleted_at"
   end
 
+  create_table "urines", force: :cascade do |t|
+    t.datetime "time"
+    t.integer "volume"
+    t.datetime "deleted_at"
+    t.bigint "animal_id", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["animal_id"], name: "index_urines_on_animal_id"
+    t.index ["deleted_at"], name: "index_urines_on_deleted_at"
+  end
+
   add_foreign_key "basal_values", "animals"
+  add_foreign_key "urines", "animals"
 end

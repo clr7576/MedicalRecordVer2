@@ -1,5 +1,5 @@
 <h1>搜尋
-<%= search_form_for @q,url: "/seahch" do |f| %>
+<%= search_form_for @q ,url: "/create" do |f| %>
    <li>
     <%= f.label :name %>
     <%= f.search_field :name %>
@@ -8,6 +8,15 @@
     <%= f.label :number %>
     <%= f.search_field :number %>
    </li>
+
     <%= f.submit %>
   <% end %>
 </h1>
+
+<h2>入院日期：
+ <%= datetime_field_tag :start_on, params[:start_on] %>至
+ <%= datetime_field_tag :end_on, params[:end_on] %>
+ <%= submit_tag "送出篩選" %>
+  
+
+</h2>

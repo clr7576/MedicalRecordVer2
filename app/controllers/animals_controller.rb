@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
 
-    def index
+       def index
         # @animals = Animal.all
         @animals = Animal.where(discharge: "hospitalization")
        end
